@@ -10,7 +10,6 @@ if (!email || !password) {
   next(errorGene(400, 'Some required fields are missing'));
   // res.status(400).json({ message: 'Some required fields are missing' });
 }
-
 const { error } = schemaLogin.validate(req.body);
 if (error) { next(errorGene(400, 'Invalid fields')); }
 // res.status(400).json({ message: 'Invalid fields' });
