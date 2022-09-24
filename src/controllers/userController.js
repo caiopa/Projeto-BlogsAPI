@@ -10,4 +10,5 @@ try {
 
 module.exports = {
     insertUser,
+
 };
