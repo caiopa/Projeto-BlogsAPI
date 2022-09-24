@@ -4,9 +4,8 @@ const erroGene = require('../utils/errorGene');
 
 const authLogin = async ({ email, password }) => {
      const user = await User.findOne({
-          attributes: ['displayName', 'email'],
           where: { email, password } });
-
+     console.log('aqui', user);
      if (!user) {
          throw erroGene(400, 'Invalid fields');
      }

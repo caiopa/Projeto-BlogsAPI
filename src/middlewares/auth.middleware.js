@@ -3,7 +3,6 @@ const schemaLogin = require('../utils/schemaLogin');
 const errorGene = require('../utils/errorGene');
 
 const authMiddleware = async (req, res, next) => {
-// const { token } = req.headers;
 const { email, password } = req.body;
 console.log(email, password);
 

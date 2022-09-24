@@ -6,7 +6,7 @@ try {
   req.user = auth;
   return res.status(200).json(auth);
 } catch (error) {
-  next();
+  next(error);
   }
 };
 
