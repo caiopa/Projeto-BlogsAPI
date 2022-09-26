@@ -33,4 +33,17 @@ const listUsers = () => {
     }
 };
 
-module.exports = { createUser, listUsers };
+const findUser = (id) => {
+    try {
+        const user = User.findOne({ 
+            where: { id },
+            attributes: { 
+                exclude: ['password'],
+            },
+        });
+        return user;
+    } catch (error) {
+        console.error(error.message);
+    }
+};
+module.exports = { createUser, listUsers, findUser };
