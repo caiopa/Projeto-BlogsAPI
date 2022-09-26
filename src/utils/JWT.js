@@ -20,7 +20,7 @@ const generateToken = ({ displayName, email }) => {
 };
 
 const authenticateToken = async (token) => {
-  try {
+ try {
     const validateToken = jwt.verify(token, TOKEN_SECRET_KEY);
     return validateToken;
   } catch (error) {

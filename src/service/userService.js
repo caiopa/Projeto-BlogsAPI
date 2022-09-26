@@ -20,9 +20,9 @@ const createUser = async ({ displayName, email, password, image }) => {
     return { token };
 };
 
-const listUsers = async () => {
+const listUsers = () => {
     try {
-        const users = await User.findAll({
+        const users = User.findAll({
             attributes: {
                 exclude: ['password'],
             },

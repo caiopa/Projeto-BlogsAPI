@@ -1,5 +1,6 @@
 const userService = require('../service/userService');
 const { authenticateToken } = require('../utils/JWT');
+// const geneError = require('../utils/errorGene');
 
 const insertUser = async (req, res, next) => {
 try {
@@ -12,7 +13,6 @@ try {
 const getUsers = async (req, res, next) => {
   try {
     const { token } = req.headers;
-  
     await authenticateToken(token);
     return res.status(200).json(await userService.listUsers());
   } catch (error) {
