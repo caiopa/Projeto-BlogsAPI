@@ -4,7 +4,6 @@ const errorGene = require('../utils/errorGene');
 
 const authMiddleware = async (req, res, next) => {
 const { email, password } = req.body;
-console.log(email, password);
 
 if (!email || !password) {
   next(errorGene(400, 'Some required fields are missing'));
