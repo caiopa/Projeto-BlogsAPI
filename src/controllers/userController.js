@@ -11,7 +11,7 @@ try {
 };
 
 const getUsers = async (req, res, next) => {
-  const { token } = req.headers;
+  const token = req.headers.authorization;
   try {
     await authenticateToken(token);
     const allUsers = await userService.listUsers();

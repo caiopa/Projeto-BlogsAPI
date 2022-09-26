@@ -29,7 +29,7 @@ const listUsers = () => {
         });
         return users;
     } catch (error) {
-        console.error(error);
+        console.error(error.message);
     }
 };
 
