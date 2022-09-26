@@ -11,10 +11,11 @@ try {
 };
 
 const getUsers = async (req, res, next) => {
+  const { token } = req.headers;
   try {
-    const { token } = req.headers;
     await authenticateToken(token);
-    return res.status(200).json(await userService.listUsers());
+    const allUsers = await userService.listUsers();
+    return res.status(200).json(allUsers);
   } catch (error) {
     next(error);
   }
