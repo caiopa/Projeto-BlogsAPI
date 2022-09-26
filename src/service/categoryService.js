@@ -13,4 +13,13 @@ const createCategory = async ({ name }) => {
     }
 };
 
-module.exports = { createCategory };
+const getCategories = async () => {
+    try {
+        const allCategories = await Category.findAll();
+        return allCategories;
+    } catch (error) {
+        console.error(error.message);
+    }
+};
+
+module.exports = { createCategory, getCategories };

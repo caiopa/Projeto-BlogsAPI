@@ -17,4 +17,15 @@ const insertCategory = async (req, res, next) => {
       }
     };
 
-module.exports = { insertCategory };
+const getAllCategories = async (req, res, next) => {
+  const token = req.headers.authorization;
+  try {
+    await authenticateToken(token);
+    const allCategories = await categoryService.getCategories();
+    return res.status(200).json(allCategories);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { insertCategory, getAllCategories };
