@@ -4,9 +4,7 @@ const { Category } = require('../models');
 
 const createCategory = async ({ name }) => {
     try {
-        console.log('name', name);
         const newCategory = await Category.create({ name });
-        console.log('aquiService', newCategory);
         return newCategory;
     } catch (error) {
         console.error(error.message);
