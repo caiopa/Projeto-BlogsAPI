@@ -2,11 +2,13 @@ const { authenticateToken } = require('../utils/JWT');
 const postService = require('../service/postService');
 
 const getAllPost = async (req, res, next) => {
+  const token = req.headers.authorization;
   try {
-      const token = req.headers.authorization;
       await authenticateToken(token);
+
       const allPost = await postService.listPosts();
       console.log('aqui', allPost);
+
       return res.status(200).json(allPost);
     } catch (error) {
       next(error);
