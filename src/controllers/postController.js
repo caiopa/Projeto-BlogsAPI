@@ -7,7 +7,6 @@ const getAllPost = async (req, res, next) => {
       await authenticateToken(token);
 
       const allPost = await postService.listPosts();
-      console.log('aqui', allPost);
 
       return res.status(200).json(allPost);
     } catch (error) {
